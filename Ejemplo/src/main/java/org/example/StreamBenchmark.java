@@ -23,3 +23,4 @@ public class StreamBenchmark {
                 .collect(Collectors.toList());
     }
 }
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AvionComercialTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-07-12T17:50:58" hostname="LAPTOP-SR68DNCA" time="0.042">
+  <properties/>
+  <testcase name="VerificarConsumoCombustible()" classname="AvionComercialTest" time="0.033"/>
+  <testcase name="VerificarCapacidadCombustible()" classname="AvionComercialTest" time="0.003"/>
+  <testcase name="VerificacionRetornoCorrecto()" classname="AvionComercialTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
