@@ -248,4 +248,5 @@ eval "set -- $(
 
 # shellcheck disable=SC2093
 exec "$JAVACMD" "$@"
-./gradlew runJmh
+gradlew runJmh
+
