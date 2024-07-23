@@ -21,7 +21,7 @@ public class TareaAsincronicaMasRapida {
         }
         return NumeroAleatorio;
     }
-    // MOSTRAR LA TAREA QUE TERMINA MÁS RÁPIDO
+    // MOSTRAR LA TAREA QUE TERMINA MAS RAPIDO
     CompletableFuture<Object> TareaMasRapida=CompletableFuture.anyOf(futuro1, futuro2, futuro3, futuro4);
     CompletableFuture<Void>MostrarTareaMasRapida=TareaMasRapida.thenRun(()->{
         try {
