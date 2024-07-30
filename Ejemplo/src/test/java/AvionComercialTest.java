@@ -1,29 +1,35 @@
+import org.example.Avion;
 import org.example.AvionComercial;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AvionComercialTest {
-    private AvionComercial avionComercial=new AvionComercial(  );
+    private Avion avion;
+    @BeforeEach
+    public void Setup(){
+        avion=new AvionComercial();
+    }
     @Test
     public void VerificacionRetornoCorrecto(){
-        int distancia=15000;
-        int RetornoCorrecto=avionComercial.volar(15000);
+        int distancia=100;
+        int RetornoCorrecto=distancia* avion.getConsumoCombustible();
         int RetornoReal=
-                avionComercial.volar(15000);
+                avion.volar(10);
         Assertions.assertEquals(RetornoCorrecto, RetornoReal);
     }
     @Test
     public void VerificarConsumoCombustible() {
-        int RetornoCorrecto= avionComercial.getConsumoCombustible();
+        int RetornoCorrecto=avion.getConsumoCombustible();
         int RetornoReal=
-                avionComercial.getConsumoCombustible();
+                avion.getConsumoCombustible();
         Assertions.assertEquals(RetornoCorrecto, RetornoReal);
     }
     @Test
     public void VerificarCapacidadCombustible() {
-        int RetornoCorrecto= avionComercial.getCapacidadCombustible();
+        int RetornoCorrecto= avion.getCapacidadCombustible();
         int RetornoReal=
-                avionComercial.getCapacidadCombustible();
+                avion.getCapacidadCombustible();
         Assertions.assertEquals(RetornoCorrecto, RetornoReal);
 }
 }

@@ -2,28 +2,29 @@ import org.example.AvionComercial;
 import org.example.AvionPrivado;
 import org.example.CalculadorCombustible;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CalculadorCombustibleTest {
 
-        private CalculadorCombustible calculadorCombustible1 = CalculadorCombustible.getInstance();
-        private CalculadorCombustible calculadorCombustible2 = CalculadorCombustible.getInstance();
+        private CalculadorCombustible instanciaCalculador;
         private AvionPrivado avionPrivado=new AvionPrivado();
         private AvionComercial avionComercial = new AvionComercial();
-
+        @BeforeEach
+        public void Setup(){
+             instanciaCalculador=CalculadorCombustible.getInstance();
+        }
 
         @Test
         public void VerificarIgualdadDe2Instancias() {
-            this.calculadorCombustible1.equals(this.calculadorCombustible2);
-            boolean RetornoCorrecto = true;
-            boolean RetornoReal = true;
-            Assertions.assertEquals(RetornoCorrecto, RetornoReal);
+            CalculadorCombustible segundaInstancia=CalculadorCombustible.getInstance();
+            Assertions.assertEquals(instanciaCalculador, segundaInstancia);
         }
 
         @Test
         public void VerificarCantidadCombustibleAvionPrivado() {
             int distancia = 8000;
-            int RetornoCorrecto = this.avionPrivado.volar(8000);
+            int RetornoCorrecto = instanciaCalculador.calcularCombustible(avionPrivado, distancia);
             int RetornoReal = this.avionPrivado.volar(8000);
             Assertions.assertEquals(RetornoCorrecto, RetornoReal);
         }
@@ -31,8 +32,8 @@ public class CalculadorCombustibleTest {
         @Test
         public void VerificarCantidadCombustibleAvionComercial() {
             int distancia = 8000;
-            int RetornoCorrecto = this.avionComercial.volar(12000);
-            int RetornoReal = this.avionComercial.volar(12000);
+            int RetornoCorrecto = instanciaCalculador.calcularCombustible(avionPrivado, distancia);
+            int RetornoReal = this.avionComercial.volar(distancia);
             Assertions.assertEquals(RetornoCorrecto, RetornoReal);
         }
 
@@ -71,13 +72,6 @@ public class CalculadorCombustibleTest {
             Assertions.assertEquals(RetornoCorrecto, RetornoReal);
         }
 
-        @Test
-        public void VerificacionCalculoCorrectoCombustible() {
-            AvionPrivado avion = new AvionPrivado();
-            int RetornoCorrecto = this.calculadorCombustible1.calcularCombustible(avion, 15000);
-            int RetornoReal = this.calculadorCombustible1.calcularCombustible(avion, 15000);
-            Assertions.assertEquals(RetornoCorrecto, RetornoReal);
-        }
-    }
+}
 
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TareaAsincronicaMasRapida.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ejemplo</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">TareaAsincronicaMasRapida.java</span></div><h1>TareaAsincronicaMasRapida.java</h1><pre class="source lang-java linenums">package org.example;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
+
+<span class="nc" id="L8">public class TareaAsincronicaMasRapida {</span>
+<span class="nc" id="L9">    CompletableFuture&lt;Integer&gt;futuro1=CompletableFuture.supplyAsync(() -&gt; GenerarNumerosAleatoriosYEsperar());</span>
+<span class="nc" id="L10">    CompletableFuture&lt;Integer&gt;futuro2=CompletableFuture.supplyAsync(() -&gt; GenerarNumerosAleatoriosYEsperar());</span>
+<span class="nc" id="L11">    CompletableFuture&lt;Integer&gt;futuro3=CompletableFuture.supplyAsync(() -&gt; GenerarNumerosAleatoriosYEsperar());</span>
+<span class="nc" id="L12">    CompletableFuture&lt;Integer&gt;futuro4=CompletableFuture.supplyAsync(() -&gt; GenerarNumerosAleatoriosYEsperar());</span>
+
+    //Generar los nÃºmeros y esperar
+    private static int GenerarNumerosAleatoriosYEsperar()   {
+<span class="nc" id="L16">        int NumeroAleatorio= ThreadLocalRandom.current().nextInt();</span>
+        try {
+<span class="nc" id="L18">            TimeUnit.MILLISECONDS.sleep(NumeroAleatorio);</span>
+<span class="nc" id="L19">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L20">            Thread.currentThread().interrupt();</span>
+<span class="nc" id="L21">        }</span>
+<span class="nc" id="L22">        return NumeroAleatorio;</span>
+    }
+    // MOSTRAR LA TAREA QUE TERMINA MAS RAPIDO
+<span class="nc" id="L25">    CompletableFuture&lt;Object&gt; TareaMasRapida=CompletableFuture.anyOf(futuro1, futuro2, futuro3, futuro4);</span>
+<span class="nc" id="L26">    CompletableFuture&lt;Void&gt;MostrarTareaMasRapida=TareaMasRapida.thenRun(()-&gt;{</span>
+        try {
+<span class="nc" id="L28">            System.out.println(&quot;La Tarea que termina mÃ¡s rÃ¡pido es &quot; +TareaMasRapida.get());</span>
+<span class="nc" id="L29">        }catch (InterruptedException | ExecutionException e){</span>
+<span class="nc" id="L30">            e.printStackTrace();</span>
+<span class="nc" id="L31">        }</span>
+
+<span class="nc" id="L33">    });</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

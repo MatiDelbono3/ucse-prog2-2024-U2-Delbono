@@ -1,11 +1,12 @@
-package org.example;
+package Ejercicio3;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 
-public class TareasAsincronicas {
+public  class TareasAsincronicas {
+    public void Ejercicio3(){
     CompletableFuture<Integer>futuro1=CompletableFuture.supplyAsync(() -> GenerarNumerosAleatoriosYEsperar());
     CompletableFuture<Integer>futuro2=CompletableFuture.supplyAsync(() -> GenerarNumerosAleatoriosYEsperar());
     CompletableFuture<Integer>futuro3=CompletableFuture.supplyAsync(() -> GenerarNumerosAleatoriosYEsperar());
@@ -17,6 +18,7 @@ public class TareasAsincronicas {
                 int Suma = futuro1.join() + futuro2.join() + futuro3.join() + futuro4.join();
                 System.out.println("La Suma de los números generados es " + Suma);
          });
+    }
 
 
 

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CalculadorCombustibleTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-07-12T17:50:58" hostname="LAPTOP-SR68DNCA" time="0.023">
+<testsuite name="CalculadorCombustibleTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-07-30T14:37:00" hostname="LAPTOP-SR68DNCA" time="0.078">
   <properties/>
-  <testcase name="VerificarIgualdadDe2Instancias()" classname="CalculadorCombustibleTest" time="0.004"/>
-  <testcase name="VerificarCantidadCombustibleAvionComercial()" classname="CalculadorCombustibleTest" time="0.002"/>
+  <testcase name="VerificarIgualdadDe2Instancias()" classname="CalculadorCombustibleTest" time="0.06"/>
+  <testcase name="VerificarCantidadCombustibleAvionComercial()" classname="CalculadorCombustibleTest" time="0.001"/>
   <testcase name="VerificarConsumoCombustibleAvionPrivado()" classname="CalculadorCombustibleTest" time="0.001"/>
   <testcase name="VerificarCantidadCombustibleAvionPrivado()" classname="CalculadorCombustibleTest" time="0.001"/>
-  <testcase name="VerificarCapacidadCombustibleAvionComercial()" classname="CalculadorCombustibleTest" time="0.001"/>
+  <testcase name="VerificarCapacidadCombustibleAvionComercial()" classname="CalculadorCombustibleTest" time="0.002"/>
   <testcase name="VerificarCapacidadCombustibleAvionPrivado()" classname="CalculadorCombustibleTest" time="0.001"/>
   <testcase name="VerificacionRetornoInstancia()" classname="CalculadorCombustibleTest" time="0.001"/>
-  <testcase name="VerificacionCalculoCorrectoCombustible()" classname="CalculadorCombustibleTest" time="0.001"/>
   <testcase name="VerificarConsumoCombustibleAvionComercial()" classname="CalculadorCombustibleTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
